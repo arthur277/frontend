@@ -23,6 +23,7 @@ module.exports = {
         blue: "#2563EB",
         green: "#6dde6d",
         indigo: "#7F9CF5",
+        golden: "#FFD700"
       },
       fontFamily: {
         // Headings

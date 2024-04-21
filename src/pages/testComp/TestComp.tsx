@@ -1,26 +1,19 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import LogoutButton from '../../utils/logoutButton.tsx';
+import Nav from '../../components/ui/Nav.tsx';
+
+
 
 export default function TestComp() {
 
-    const history = useHistory();
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        history.push('/login')
-    }
+
     return (
-        <div className='h-screen w-full bg-black'>
-            <div className='w-full h-20  flex flex-row justify-center items-center'>
-                <a href="/myCards">
+        <div className='h-screen w-full bg-black flex flex-col justify-between'>
+            <Nav />
 
-                    <h2 className='m-4 font-monospace font-extrabold text-white hover:text-green hover:cursor-pointer hover:border-b-2'>My Cards</h2>
-                </a>
-                <a onClick={handleLogout}>
-                    <h2 className='m-4 font-monospace font-extrabold text-white hover:text-green hover:cursor-pointer hover:border-b-2'>logout</h2>
-
-                </a>
+            <div className='flex justify-center items-center self-center mb-80 '>
+                <h1 className='text-white text-[100px] font-extrabold  font-monospace'>Welcome and that !!</h1>
             </div>
-
         </div>
     )
 }

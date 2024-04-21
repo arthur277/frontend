@@ -8,16 +8,18 @@ import TestComp from './pages/testComp/TestComp.tsx';
 import PrivateRoute
   from './Middlewear/PrivateRoute.tsx';
 import myCards from './components/ui/myCards.tsx';
+import AddCard from './components/add-card/AddCard.tsx';
 function App() {
 
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Login} />
         <PrivateRoute path="/test" component={TestComp} />
         <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
-        <PrivateRoute path="/myCards" component={myCards} />
+        <PrivateRoute path="/Cards" component={myCards} />
+        <PrivateRoute path="/addCard" component={AddCard} />
+
       </Switch>
     </Router>
   );
