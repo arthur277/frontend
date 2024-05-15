@@ -12,7 +12,7 @@ export default function Login() {
 
         try {
             let item = { email, password }
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('http://localhost:8000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -27,6 +27,7 @@ export default function Login() {
 
             const userData = await response.json();
             localStorage.setItem('token', userData.token);
+            localStorage.setItem('userId',userData.userId)
             console.log('login successful', userData);
             history.push('/test')
         } catch (error) {

@@ -19,10 +19,11 @@ export default function MyCards() {
     useEffect(() => {
         getAllCards();
     }, [])
+    let userId = localStorage.getItem('userId')
 
     const getAllCards = async () => {
         try {
-            const response = await fetch('http://localhost:3000/getCards');
+            const response = await fetch(`http://localhost:8000/${userId}/cards`);
             const data = await response.json()
             setMyCards(data)
             console.log(data);

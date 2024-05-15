@@ -25,7 +25,7 @@ function AddCard() {
                 description,
             };
 
-            const response = await fetch('http://localhost:3000/addCard', {
+            const response = await fetch('http://localhost:8000/addCard', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
