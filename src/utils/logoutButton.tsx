@@ -9,7 +9,7 @@ export default function LogoutButton() {
     }
     return (
         <a onClick={handleLogout}>
-            <h2 className='m-4 font-monospace font-extrabold text-white hover:text-green hover:cursor-pointer hover:border-b-2'>logout</h2>
+            <h2 className='m-4 font-monospace font-extrabold text-black hover:text-green hover:cursor-pointer hover:border-b-2'>logout</h2>
         </a>
     )
 }

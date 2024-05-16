@@ -8,7 +8,7 @@ function AddCard() {
     const [strength, setPower] = useState('');
     const [description, setQuote] = useState('');
     const [error, setError] = useState('');
-    const [UserId, setUserId] = useState('');
+
     const history = useHistory();
 
 
@@ -16,6 +16,8 @@ function AddCard() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const userId = localStorage.getItem('userId');
+
 
         try {
             const cardData = {
@@ -23,9 +25,10 @@ function AddCard() {
                 type,
                 strength,
                 description,
+                userId
             };
 
-            const response = await fetch('http://localhost:8000/addCard', {
+            const response = await fetch('http://localhost:3003/addCard', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -48,7 +51,7 @@ function AddCard() {
     };
 
     return (
-        <div className='h-screen w-full bg-black flex flex-col'>
+        <div className='h-screen w-full bg-white flex flex-col'>
             <Nav />
             <div className="bg-black text-white flex min-h-screen flex-col items-center sm:justify-center">
                 {/* Your form */}

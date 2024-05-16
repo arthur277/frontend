@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Nav from '../ui/Nav.tsx';
 import geralt from "../../assets/images/geralt.png";
 import yennefer from "../../assets/images/yennefer.png";
 import decoy from "../../assets/images/decoy.png";
-import Nav from './Nav.tsx';
+
 
 interface Card {
     id: number;
@@ -15,7 +16,7 @@ interface Card {
     UserId: number;
 }
 
-export default function MyCards() {
+function Store() {
     const [myCards, setMyCards] = useState<Card[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -27,7 +28,7 @@ export default function MyCards() {
 
     const getAllCards = async () => {
         try {
-            const response = await fetch(`http://localhost:3003/cards/${userId}`);
+            const response = await fetch(`http://localhost:3003/getCards`);
             const data = await response.json();
             setMyCards(data);
             setLoading(false);
@@ -48,7 +49,7 @@ export default function MyCards() {
             {loading && <p>Loading...</p>}
             {!loading && myCards.length === 0 && <p className='bg-white'>You have no cards yet.</p>}
             {!loading && myCards.length > 0 && (
-                <div className=' self-center flex flex-col md:flex-row gap-10 mt-20'>
+                <div className=' self-center flex flex-col md:flex-row gap-10 flex-wrap  justify-center mt-20'>
                     {myCards.map((card) => (
                         <div key={card.id} className='w-[250px] h-[500px] border-2 border-black rounded-lg flex flex-col'>
                             <div className='  h-4/6 relative rounded-[5px] '>
@@ -69,3 +70,5 @@ export default function MyCards() {
         </div>
     );
 }
+
+export default Store
