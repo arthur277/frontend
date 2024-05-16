@@ -9,6 +9,7 @@ import PrivateRoute
   from './Middlewear/PrivateRoute.tsx';
 import myCards from './components/ui/myCards.tsx';
 import AddCard from './components/add-card/AddCard.tsx';
+import Store from './components/store/Store.tsx';
 function App() {
 
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/register" component={Register} />
         <PrivateRoute path="/Cards" component={myCards} />
         <PrivateRoute path="/addCard" component={AddCard} />
+        <PrivateRoute path="/store" component={Store} />
+
 
       </Switch>
     </Router>
